@@ -30,7 +30,7 @@ class CustomPage {
         await this.page.setCookie({ name: 'session', value: session })//setting cookie to fake the session for chromium instance in order to login
         await this.page.setCookie({ name: 'session.sig', value: sig })
         await this.page.goto('http://localhost:3000/blogs')
-        await this.page.waitFor('a[href="/auth/logout"]',{timeout:70000})
+        await this.page.waitFor('a[href="/auth/logout"]')
     }
     async getContentsOf(selector) {
         return this.page.$eval(selector, el => el.innerHTML);
